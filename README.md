@@ -1,16 +1,11 @@
-# easybook
+## easybook
+一个基于flutter的仿阅读app
+### 获取依赖
+flutter pub get
+### 项目启动
+flutter run
+### 项目打包
+flutter build apk
+### 依赖
+path_provider: ^2.0.2 ——一个Flutter插件，主要作用是提供一种以平台无关一致的方式访问设备的文件系统，比如应用临时目录、文档目录等。而且path_provider支持Android、iOS、Linux、MacOS、Windows。
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
