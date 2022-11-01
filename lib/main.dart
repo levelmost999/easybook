@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'util/util.dart';
 import './routes/routes.dart';
-
+import '../pages/bookrack.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: onGenerateRoute as Route<dynamic>? Function(RouteSettings)?,
-      home: const Logo(),
-      // home: const Protocol(),
+      // home: const Logo(),
+      home: const Bookrack(),
     );
   }
 }

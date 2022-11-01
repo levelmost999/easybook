@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class Protocol extends StatelessWidget {
@@ -142,100 +140,194 @@ class Privacy extends StatelessWidget {
   }
 }
 
-class GuidePage extends StatelessWidget {
+class GuidePage extends StatefulWidget {
   const GuidePage({super.key});
   @override
+  State<StatefulWidget> createState() {
+    return GuidePageState();
+  }
+}
+
+class GuidePageState extends State {
+  int page = 0;
+PageController _controller = PageController();
+  @override
   Widget build(BuildContext context) {
+    // _controller.initialPage;
+    _controller.addListener(() {
+      // print('offset:${_controller.page}');
+    });
+    void dispose() {
+      _controller.dispose();
+    }
+
+    void clickCir(value) {
+      setState(() {
+        page = value;
+      });
+      _controller.animateToPage(value,
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
+
     return Scaffold(
         body: DecoratedBox(
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: const BoxDecoration(color: Colors.white),
       child: Center(
-        child: PageView(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                  child: Image(
-                    image: AssetImage('assets/images/guide1.png'),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: Text(
-                    '标题文字1',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
+          child: Stack(
+        children: [
+          PageView(
+            onPageChanged: ((value) {
+              setState(() {
+                page = value;
+              });
+            }),
+            controller: _controller,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                    child: Image(
+                      image: AssetImage('assets/images/guide1.png'),
                     ),
                   ),
-                ),
-                Text(
-                  '这是一段描述这是一段描述',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 30),
-                  child: Image(
-                    image: AssetImage('assets/images/guide2.png'),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 10),
-                  child: Text(
-                    '标题文字1',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Text(
+                      '标题文字1',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                ),
-                Text(
-                  '这是一段描述这是一段描述',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 25, 0, 30),
-                  child: Image(
-                    image: AssetImage('assets/images/guide3.png'),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
-                  child: Text(
-                    '标题文字1',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+                    child: Text(
+                      '这是一段描述这是一段描述',
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
                     ),
                   ),
-                ),
-                Text(
-                  '这是一段描述这是一段描述',
-                  style: TextStyle(
-                    fontSize: 12,
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 30),
+                    child: Image(
+                      image: AssetImage('assets/images/guide2.png'),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 15, 0, 10),
+                    child: Text(
+                      '标题文字2',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+                    child: Text(
+                      '这是一段描述这是一段描述',
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 25, 0, 30),
+                    child: Image(
+                      image: AssetImage('assets/images/guide3.png'),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                    child: Text(
+                      '标题文字3',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  const Text(
+                    '这是一段描述这是一段描述',
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            backgroundColor: MaterialStateProperty.resolveWith(
+                                (states) =>
+                                    const Color.fromRGBO(0, 180, 120, 1)),
+                            shape: MaterialStateProperty.resolveWith((states) {
+                              return RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(90));
+                            })),
+                        onPressed: () {
+                          dispose();
+                          Navigator.of(context).pushReplacementNamed('/bookrack');
+                          },
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            '立即体验',
+                          ),
+                        )),
+                  )
+                ],
+              ),
+            ],
+          ),
+          Positioned(
+            left: 25,
+            right: 25,
+            bottom: 50,
+            child: CirGuide(page: page, clickCir: clickCir),
+          )
+        ],
+      )),
     ));
+  }
+}
+
+class CirGuide extends StatelessWidget {
+  CirGuide({required this.page, required this.clickCir});
+  int page;
+  Function clickCir;
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> aa = [];
+    for (int i = 0; i < 3; i++) {
+      aa.add(Padding(
+          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 2),
+          child: GestureDetector(
+            onTap: () => {clickCir(i)},
+            child: Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                  color: page == i ? Colors.green : Colors.grey,
+                  borderRadius: BorderRadius.circular(4)),
+            ),
+          )));
+    }
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: aa);
   }
 }

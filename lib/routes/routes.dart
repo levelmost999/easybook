@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import '../pages/protocolorprivacy.dart';
+import '../pages/bookrack.dart';
 
 final routes = {
   '/prorocol': (context) => Protocol(),
   '/privacy': (context) => Privacy(),
   '/slideshow': (context) => GuidePage(),
+  '/bookrack': (context) => Bookrack(),
   };
 Function onGenerateRoute = (RouteSettings settings) {
   final String name = settings.name!;
