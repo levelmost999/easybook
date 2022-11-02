@@ -1,3 +1,4 @@
+import 'package:easybook/component/bottomBar.dart';
 import 'package:flutter/material.dart';
 
 class Bookrack extends StatefulWidget {
@@ -18,7 +19,7 @@ class BookrackState extends State {
       ),
       child: Text('书架'),
     ),
-    bottomNavigationBar:BottomAppBar(child: Text('dd'),)
+    bottomNavigationBar:BottomBar()
     );
   }
 }
