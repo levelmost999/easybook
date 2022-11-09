@@ -21,8 +21,6 @@ final routes = {
 Function onGenerateRoute = (RouteSettings settings) {
   final String name = settings.name!;
   final Function pageContentBuilder = routes[name] as Function;
-  print(pageContentBuilder);
-  print(name);
   if (pageContentBuilder != null) {
     if (settings.arguments != null) {
       final Route route = MaterialPageRoute(

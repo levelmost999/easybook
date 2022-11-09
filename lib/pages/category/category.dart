@@ -1,6 +1,8 @@
 import 'package:easybook/component/bottomBar.dart';
 import 'package:flutter/material.dart';
 
+import '../../component/topBar.dart';
+
 class Category extends StatefulWidget{
   const Category({super.key});
   @override
@@ -14,6 +16,7 @@ class CategoryState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: TopBar(),
         body: DecoratedBox(
       decoration: const BoxDecoration(
         color: Colors.white,

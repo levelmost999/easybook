@@ -1,4 +1,5 @@
 import 'package:easybook/component/bottomBar.dart';
+import 'package:easybook/component/topBar.dart';
 import 'package:flutter/material.dart';
 
 class Bookrack extends StatefulWidget {
@@ -13,6 +14,7 @@ class BookrackState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: TopBar(),
         body: DecoratedBox(
       decoration: const BoxDecoration(
         color: Colors.white,

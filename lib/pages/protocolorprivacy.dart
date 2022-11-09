@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easybook/cache/cache.dart';
+import '../util/util.dart';
 
 class Protocol extends StatelessWidget {
   const Protocol({super.key});
@@ -282,6 +284,7 @@ PageController _controller = PageController();
                             })),
                         onPressed: () {
                           dispose();
+                          writeLocalCache(globalCache.guidanced,'true');
                           Navigator.of(context).pushReplacementNamed('/bookrack');
                           },
                         child: const Padding(
